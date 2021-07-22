@@ -467,17 +467,62 @@ namespace ElectronicObserver.Data.Quest
 							}
 							break;
 
+						case 944: //|944|年(6月)|鎮守府近海海域の哨戒を実施せよ！|1-2・1-3・1-4ボスS勝利各2|要(重巡or駆逐)旗艦/(駆逐or海防艦)3
+							Progresses.Add(new ProgressMultiBattle(q, new[] {
+								new ProgressSpecialBattle(q, 2, "S", new[] { 12 }, true),
+								new ProgressSpecialBattle(q, 2, "S", new[] { 13 }, true),
+								new ProgressSpecialBattle(q, 2, "S", new[] { 14 }, true),
+							}));
+							break;
+
+						case 945: //|945|年(6月)|南西方面の兵站航路の安全を図れ！|1-5・2-1ボスS勝利各1/1-6終点到達2|要(軽巡or連巡or駆逐艦)旗艦/(駆逐or海防艦)3以上
+							Progresses.Add(new ProgressMultiBattle(q, new[] {
+								new ProgressSpecialBattle(q, 1, "A", new[] { 15 }, true),
+								new ProgressSpecialBattle(q, 1, "x", new[] { 16 }, true),
+								new ProgressSpecialBattle(q, 1, "A", new[] { 21 }, true),
+							}));
+						break;
+
+						case 946: //|946|年(6月)|空母機動部隊、出撃！敵艦隊を迎撃せよ！|2-2・2-3・2-4ボスS勝利各1|要(航空母艦)旗艦/(重巡or航巡)2
+							Progresses.Add(new ProgressMultiBattle(q, new[] {
+								new ProgressSpecialBattle(q, 1, "S", new[] { 22 }, true),
+								new ProgressSpecialBattle(q, 1, "S", new[] { 23 }, true),
+								new ProgressSpecialBattle(q, 1, "S", new[] { 24 }, true),
+							}));
+							break;
+							
+						case 947: //|947|年(6月)|AL作戦|3-1・3-3・3-4・3-5ボスS勝利各1|要軽空母2
+							Progresses.Add(new ProgressMultiBattle(q, new[] {
+								new ProgressSpecialBattle(q, 1, "S", new[] { 31 }, true),
+								new ProgressSpecialBattle(q, 1, "S", new[] { 33 }, true),
+								new ProgressSpecialBattle(q, 1, "S", new[] { 34 }, true),
+								new ProgressSpecialBattle(q, 1, "S", new[] { 35 }, true),
+							}));
+							break;
+							
+						case 948: //|948|年(6月)|機動部隊決戦|5-2・5-5・6-5ボスS勝利各2/6-4ボスA勝利2|要航空母艦旗艦
+							Progresses.Add(new ProgressMultiBattle(q, new[] {
+								new ProgressSpecialBattle(q, 2, "S", new[] { 52 }, true),
+								new ProgressSpecialBattle(q, 2, "S", new[] { 55 }, true),
+								new ProgressSpecialBattle(q, 2, "A", new[] { 64 }, true),
+								new ProgressSpecialBattle(q, 2, "S", new[] { 65 }, true),
+							}));
+							break;
+
 						case 303:   //|303|「演習」で練度向上！|演習3
-							Progresses.Add(new ProgressPractice(q, 3, false));
+							Progresses.Add(new ProgressPractice(q, 3, "E"));
 							break;
 						case 304:   //|304|「演習」で他提督を圧倒せよ！|演習勝利5
-							Progresses.Add(new ProgressPractice(q, 5, true));
+							Progresses.Add(new ProgressPractice(q, 5, "B"));
 							break;
 						case 302:   //|302|大規模演習|演習勝利20
-							Progresses.Add(new ProgressPractice(q, 20, true));
+							Progresses.Add(new ProgressPractice(q, 20, "B"));
 							break;
 						case 311:   //|311|精鋭艦隊演習|演習勝利7|マンスリーだが1日で進捗リセット
-							Progresses.Add(new ProgressPractice(q, 7, true));
+							Progresses.Add(new ProgressPractice(q, 7, "B"));
+							break;
+						case 318:   //|318|月|給糧艦「伊良湖」の支援|演習勝利3, 秘書艦に戦闘糧食x2装備|要軽巡2以上, 戦
+							Progresses.Add(new ProgressSpecaiPractice(q, 3, "B"));
 							break;
 
 						case 402:   //|402|「遠征」を3回成功させよう！|遠征成功3
@@ -713,6 +758,26 @@ namespace ElectronicObserver.Data.Quest
 								new ProgressDiscard(q, 4, true, new[]{ 8 }),
 							}));
 							break;
+						case 1101: //|1101|６|海軍工廠の再整備|(12.7cm連装砲x4)廃棄, (家具コイン4,000, 14cm単装砲x4, 20.3cm連装砲x4)保有
+							Progresses.Add(new ProgressMultiDiscard(q, new[]{
+								new ProgressDiscard(q, 4, true, new[]{ 2 },-1),
+							}));
+							break;
+						case 1102: //|1102|６|工廠による装備兵装の強化準備|(12cm単装砲x7)廃棄, (燃料2400, 20.3cm連装砲x5, 36.5cm連装砲x5)保有
+							Progresses.Add(new ProgressMultiDiscard(q, new[]{
+								new ProgressDiscard(q, 7, true, new[]{ 1 }, -1),
+							}));
+							break;
+						case 1103: //|1103|６|潜水艦強化兵装の量産|(61cm三連装(酸素)魚雷x3)廃棄, (開発資材60, 九三式水中聴音機x2, 13号対空電探改x2)保有
+							Progresses.Add(new ProgressMultiDiscard(q, new[]{
+								new ProgressDiscard(q, 3, true, new[]{ 125 }, -1),
+							}));
+							break;
+						case 1104: //|1104|６|潜水艦電子兵装の量産|(13号対空電探改x3)廃棄, (開発資材100, 九三式水中聴音機x2, 22号対水上電探)保有
+							Progresses.Add(new ProgressMultiDiscard(q, new[]{
+								new ProgressDiscard(q, 3, true, new[]{ 106 }, -1),
+							}));
+						break;
 
 						case 702:   //|702|艦の「近代化改修」を実施せよ！|改修成功2
 							Progresses.Add(new ProgressModernization(q, 2));
